@@ -1,16 +1,15 @@
 import java.util.Random;
-import java.util.Scanner;
+import java.util.Scanner; //читает с консоли
 
-public class  Game{
-    public static void main(String[] args) {
-        String castle = "\uD83C\uDFF0";
+public class  Game { //видно во всем проекте (public)
+    public static void main(String[] args) { //main метод.
+        String castle = "\uD83C\uDFF0"; //строка - string
 
         int sizeBoard = 5;
         int step = 0;
+        Person person = new Person(sizeBoard); //экземпляр класса
 
-        Person person = new Person(sizeBoard);
-
-        Random random = new Random();
+        Random random = new Random(); //экземпляр не нашего класса random
         int castleX = 1 + random.nextInt(sizeBoard);
         int castleY = 1;
 
@@ -23,10 +22,25 @@ public class  Game{
 
         int countMonster = sizeBoard * sizeBoard - sizeBoard - 1;
         Monster[] monsters = new Monster[countMonster];
-        for (int i = 0; i < countMonster; i++) {
-            Monster monster = new Monster(sizeBoard);
-            monsters[i] = monster;
-            board[monster.getY() - 1][monster.getX() - 1] = monster.getImage();
+        int count = 0;
+
+        while (count < countMonster) {
+            Monster monster;
+
+            if (random.nextBoolean()) {
+                monster = new Monster(sizeBoard);
+            } else {
+                monster = new BigMonster(sizeBoard);
+            }
+
+            int row = monster.getY() - 1;
+            int column = monster.getX() - 1;
+
+            if (board[row][column].equals("  ")) {
+                board[row][column] = monster.getImage();
+                monsters[count] = monster;
+                count++;
+            }
         }
 
         board[castleY - 1][castleX - 1] = castle;
@@ -106,8 +120,6 @@ public class  Game{
                 break;
         }
     }
-
-
 
     static void outputBoard(String[][] board, int live) {
         String leftBlock = "| ";
