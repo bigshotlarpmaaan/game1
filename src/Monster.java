@@ -51,8 +51,77 @@ public class Monster {
                 System.out.println("Ты проиграл эту битву!");
                 return false;
             }
+        } else if (difficultGame == 2) {
+            Random random = new Random();
+            int a = random.nextInt(80) + 20;
+            int b = random.nextInt(a);
+            int trueAnswer = a - b;
+
+            System.out.println("Реши пример: " + a + " - " + b + " = ?");
+            Scanner scanner = new Scanner(System.in);
+            int answer = scanner.nextInt();
+
+            if (trueAnswer == answer) {
+                System.out.println("Верно! Ты победил монстра");
+                return true;
+            } else {
+                System.out.println("Ты проиграл эту битву!");
+                return false;
+            }
+        } else if (difficultGame == 3) {
+            Random random = new Random();
+            int a = random.nextInt(12) + 1;
+            int b = random.nextInt(10) + 1;
+            int trueAnswer = a * b;
+
+            System.out.println("Реши пример: " + a + " × " + b + " = ?");
+            Scanner scanner = new Scanner(System.in);
+            int answer = scanner.nextInt();
+
+            if (trueAnswer == answer) {
+                System.out.println("Верно! Ты победил монстра");
+                return true;
+            } else {
+                System.out.println("Ты проиграл эту битву!");
+                return false;
+            }
+        } else if (difficultGame == 4) {
+            Random random = new Random();
+            int a = random.nextInt(20) + 5;
+            int b = random.nextInt(15) + 5;
+            int trueAnswer = a * b;
+
+            System.out.println("Реши пример: " + a + " × " + b + " = ?");
+            Scanner scanner = new Scanner(System.in);
+            int answer = scanner.nextInt();
+
+            if (trueAnswer == answer) {
+                System.out.println("Верно! Ты победил монстра");
+                return true;
+            } else {
+                System.out.println("Ты проиграл эту битву!");
+                return false;
+            }
+        } else if (difficultGame == 5) {
+            Random random = new Random();
+            int a = random.nextInt(40) + 10;
+            int b = random.nextInt(10) + 1;
+            int c = random.nextInt(5) + 1;
+            int trueAnswer = a - (b * c);
+
+            System.out.println("Реши пример: " + a + " - (" + b + " × " + c + ") = ?");
+            Scanner scanner = new Scanner(System.in);
+            int answer = scanner.nextInt();
+
+            if (trueAnswer == answer) {
+                System.out.println("Верно! Ты победил монстра");
+                return true;
+            } else {
+                System.out.println("Ты проиграл эту битву!");
+                return false;
+            }
         } else {
-            // какой-то код
+            System.out.println("неизвестный уровень сложности.");
             return false;
         }
     }

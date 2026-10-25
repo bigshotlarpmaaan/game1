@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Person {
+public class   Person {
     private int x, y;
     private String image = "\uD83E\uDDD9";
     private int live = 3;
