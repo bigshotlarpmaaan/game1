@@ -1,10 +1,9 @@
 import java.util.Random;
-import java.util.Scanner;
 
 public class BigMonster extends Monster {
     BigMonster(int sizeBoard) {
         super(sizeBoard);
-        setImage("\uD83D\uDC79");
+        setImage("\uD83D\uDC79"); // 👹
     }
 
     @Override
@@ -15,12 +14,10 @@ public class BigMonster extends Monster {
             System.out.println("ПЕРЕД ТОБОЙ БОЛЬШОЙ МОНСТР! Решите задачу, чтобы победить:");
 
             Random random = new Random();
-            Scanner scanner = new Scanner(System.in);
             int trueAnswer = 0;
             String question = "";
 
             if (difficultGame == 2) {
-
                 int x = random.nextInt(10 * (difficultGame - 1), 10 * difficultGame);
                 int y = random.nextInt(10 * (difficultGame - 1), 10 * difficultGame);
                 int z = random.nextInt(100 * (difficultGame - 1), 100 * difficultGame);
@@ -29,16 +26,16 @@ public class BigMonster extends Monster {
                 question = x + " * " + y + " - " + z;
 
             } else if (difficultGame == 3) {
-                // Уровень 3: деление с гарантированным целым ответом
-                int divisor = random.nextInt(2, 10);          // от 2 до 9
-                int multiplier = random.nextInt(10, 50);      // от 10 до 49
-                int dividend = divisor * multiplier;          // делимое, которое точно делится
+                // деление с гарантированным целым ответом
+                int divisor = random.nextInt(2, 10);
+                int multiplier = random.nextInt(10, 50);
+                int dividend = divisor * multiplier;
 
                 trueAnswer = multiplier;
                 question = dividend + " / " + divisor;
 
             } else if (difficultGame == 4) {
-                // Уровень 4: пример со скобками
+                // пример со скобками
                 int a = random.nextInt(5, 20);
                 int b = random.nextInt(5, 20);
                 int c = random.nextInt(2, 10);
@@ -48,7 +45,7 @@ public class BigMonster extends Monster {
                 question = "(" + a + " + " + b + ") * " + c + " - " + d;
 
             } else {
-                // Для любого другого уровня (например, 5+) — базовая задача как у уровня 2
+                // уровень 5 и выше — как уровень 2
                 int x = random.nextInt(10 * (difficultGame - 1), 10 * difficultGame);
                 int y = random.nextInt(10 * (difficultGame - 1), 10 * difficultGame);
                 int z = random.nextInt(100 * (difficultGame - 1), 100 * difficultGame);
@@ -59,7 +56,7 @@ public class BigMonster extends Monster {
 
             System.out.println("Реши пример: " + question + " = ?");
 
-            int answer = scanner.nextInt();
+            int answer = Game.scanner.nextInt();
 
             if (trueAnswer == answer) {
                 System.out.println("Верно! Ты победил монстра");

@@ -1,8 +1,8 @@
 import java.util.Random;
 
-public class   Person {
+public class Person {
     private int x, y;
-    private String image = "\uD83E\uDDD9";
+    private String image = "\uD83E\uDDD9"; // 🧙
     private int live = 3;
 
     Person(int sizeBoard) {
@@ -19,6 +19,7 @@ public class   Person {
     Person() {
         this(1, 1);
     }
+
     public int getX() {
         return x;
     }
@@ -57,4 +58,3 @@ public class   Person {
         }
     }
 }
-

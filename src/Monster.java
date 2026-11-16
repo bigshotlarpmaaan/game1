@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Scanner;
 
 public class Monster {
     private String image = "\uD83E\uDDDF";
@@ -7,8 +6,8 @@ public class Monster {
 
     Monster(int sizeBoard) {
         Random random = new Random();
-        x = 1 + random.nextInt(sizeBoard);
-        y = 1 + random.nextInt(sizeBoard - 1);
+        x = 1 + random.nextInt(sizeBoard); // от 1 до sizeBoard — по всей ширине поля
+        y = 1 + random.nextInt(sizeBoard); // от 1 до sizeBoard — по всей высоте поля
     }
 
     public int getX() {
@@ -41,8 +40,7 @@ public class Monster {
             int trueAnswer = a + b;
 
             System.out.println("Реши пример: " + a + " + " + b + " = ?");
-            Scanner scanner = new Scanner(System.in);
-            int answer = scanner.nextInt();
+            int answer = Game.scanner.nextInt();
 
             if (trueAnswer == answer) {
                 System.out.println("Верно! Ты победил монстра");
@@ -58,8 +56,7 @@ public class Monster {
             int trueAnswer = a - b;
 
             System.out.println("Реши пример: " + a + " - " + b + " = ?");
-            Scanner scanner = new Scanner(System.in);
-            int answer = scanner.nextInt();
+            int answer = Game.scanner.nextInt();
 
             if (trueAnswer == answer) {
                 System.out.println("Верно! Ты победил монстра");
@@ -75,8 +72,7 @@ public class Monster {
             int trueAnswer = a * b;
 
             System.out.println("Реши пример: " + a + " × " + b + " = ?");
-            Scanner scanner = new Scanner(System.in);
-            int answer = scanner.nextInt();
+            int answer = Game.scanner.nextInt();
 
             if (trueAnswer == answer) {
                 System.out.println("Верно! Ты победил монстра");
@@ -92,8 +88,7 @@ public class Monster {
             int trueAnswer = a * b;
 
             System.out.println("Реши пример: " + a + " × " + b + " = ?");
-            Scanner scanner = new Scanner(System.in);
-            int answer = scanner.nextInt();
+            int answer = Game.scanner.nextInt();
 
             if (trueAnswer == answer) {
                 System.out.println("Верно! Ты победил монстра");
@@ -110,8 +105,7 @@ public class Monster {
             int trueAnswer = a - (b * c);
 
             System.out.println("Реши пример: " + a + " - (" + b + " × " + c + ") = ?");
-            Scanner scanner = new Scanner(System.in);
-            int answer = scanner.nextInt();
+            int answer = Game.scanner.nextInt();
 
             if (trueAnswer == answer) {
                 System.out.println("Верно! Ты победил монстра");
