@@ -22,6 +22,9 @@ public class Game {
             }
         }
 
+        // Замок ставим ПЕРВЫМ, чтобы монстр не мог заспавниться под ним
+        board[castleY - 1][castleX - 1] = castle;
+
         int countMonster = sizeBoard * sizeBoard - sizeBoard - 1;
         Monster[] monsters = new Monster[countMonster];
         int count = 0;
@@ -48,10 +51,8 @@ public class Game {
             }
         }
 
-        board[castleY - 1][castleX - 1] = castle;
-
         System.out.println("Привет! Ты готов начать играть в игру? (Напиши: ДА или НЕТ)");
-        String answer = scanner.nextLine();
+        String answer = scanner.nextLine().trim().toUpperCase();
         System.out.println("Ваш ответ:\t" + answer);
 
         switch (answer) {
@@ -103,11 +104,9 @@ public class Game {
                     } else {
                         // Клетка занята монстром — бой
                         System.out.println("На пути монстр! Начинается битва...");
-                        boolean fought = false;
 
                         for (Monster monster : monsters) {
                             if (monster.getX() == x && monster.getY() == y) {
-                                fought = true;
                                 if (monster.taskMonster(difficultGame)) {
                                     System.out.println("Монстр повержен!");
                                     board[person.getY() - 1][person.getX() - 1] = "  ";
@@ -120,13 +119,6 @@ public class Game {
                                 }
                                 break;
                             }
-                        }
-
-                        if (!fought) {
-                            // Клетка занята, но монстр не найден — страховка, чтобы игра не зависла
-                            board[person.getY() - 1][person.getX() - 1] = "  ";
-                            person.move(x, y);
-                            step++;
                         }
                     }
 
@@ -164,4 +156,5 @@ public class Game {
         System.out.println("Количество жизней:\t" + live + "\n");
     }
 }
+
 

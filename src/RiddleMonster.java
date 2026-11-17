@@ -4,7 +4,7 @@ public class RiddleMonster extends Monster {
 
     RiddleMonster(int sizeBoard) {
         super(sizeBoard);
-        setImage("\uD83E\uDDDE"); // 🧞
+        setImage("\uD83E\uDDDE");
     }
 
     @Override
